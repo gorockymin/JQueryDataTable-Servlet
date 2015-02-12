@@ -14,13 +14,12 @@ mvn clean package -Dmaven.test.skip=true exec:java
 
 ```
 
-
 ## example1.jsp
 
 Simple JQuery DataTables
 
 ## example2.jsp
 
-JQuery DataTables with extention editable feature
+JQuery DataTables with extention ```editable``` feature
 
 

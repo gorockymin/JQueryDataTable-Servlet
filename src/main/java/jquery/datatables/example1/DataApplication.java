@@ -34,7 +34,7 @@ public class DataApplication extends Application<DataConfiguration> {
         //plugin Edittable
         bootstrap.addBundle(new AssetsBundle("/assets/media", "/media", null, "media"));
         bootstrap.addBundle(new AssetsBundle("/assets/scripts", "/scripts", null, "scripts"));
-        bootstrap.addBundle(new AssetsBundle("/assets/example2.html", "/example2.html", null, "example2"));
+        bootstrap.addBundle(new AssetsBundle("/assets/example2.jsp", "/example2.jsp", null, "example2"));
 
     }
 

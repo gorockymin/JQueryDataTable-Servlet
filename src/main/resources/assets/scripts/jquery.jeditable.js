@@ -60,7 +60,7 @@
 (function ($) {
 
     $.fn.editable = function (target, options) {
-
+    
         var settings = {
             target: target,
             name: 'value',
@@ -102,7 +102,7 @@
         var onreset = settings.onreset || function () {
             };
         var onerror = settings.onerror || reset;
-
+        
         /* add custom event if it does not exist */
         if (!$.isFunction($(this)[settings.event])) {
             $.fn[settings.event] = function (fn) {
@@ -117,10 +117,10 @@
         settings.autoheight = 'auto' == settings.height;
 
         return this.each(function () {
-
+                        
             /* save this to self because this changes when scope changes */
-            var self = this;
-
+            var self = this;  
+                   
             /* inlined block elements lose their width and height after first edit */
             /* save them for later use as workaround */
             var savedwidth = $(self).width();
@@ -149,19 +149,19 @@
                     settings.height = savedheight;
                 } else {
                     if (settings.width != 'none') {
-                        settings.width =
+                        settings.width = 
                             //settings.autowidth ? $(self).width()  : settings.width;
                             settings.autowidth ? savedwidth : settings.width;
                     }
                     if (settings.height != 'none') {
-                        settings.height =
+                        settings.height = 
                             settings.autoheight ? $(self).height() : settings.height;
                     }
                 }
                 //$(this).css('visibility', '');
 
                 /* remove placeholder text, replace is here because of IE */
-                if ($(this).html().toLowerCase().replace(/;/, '') ==
+                if ($(this).html().toLowerCase().replace(/;/, '') == 
                     settings.placeholder.toLowerCase().replace(/;/, '')) {
                     $(this).html('');
                 }
@@ -186,7 +186,7 @@
                     if ('inherit' == settings.style) {
                         form.attr('style', $(self).attr('style'));
                         /* IE needs the second line or display wont be inherited */
-                        form.css('display', $(self).css('display'));
+                        form.css('display', $(self).css('display'));                
                     } else {
                         form.attr('style', settings.style);
                     }
@@ -228,7 +228,7 @@
                         input_content = settings.data.apply(self, [self.revert, settings]);
                     }
                 } else {
-                    input_content = self.revert;
+                    input_content = self.revert; 
                 }
                 content.apply(form, [input_content, settings, self]);
 
@@ -289,16 +289,16 @@
 
                 form.submit(function (e) {
 
-                    if (t) {
+                    if (t) { 
                         clearTimeout(t);
                     }
 
                     /* do no submit */
-                    e.preventDefault();
-
+                    e.preventDefault(); 
+            
                     /* call before submit hook. */
                     /* if it returns false abort submitting */
-                    if (false !== onsubmit.apply(form, [settings, self])) {
+                    if (false !== onsubmit.apply(form, [settings, self])) { 
                         /* custom inputs call before submit hook. */
                         /* if it returns false abort submitting */
                         if (false !== submit.apply(form, [settings, self])) {
@@ -354,7 +354,7 @@
                                 /* override with what is given in settings.ajaxoptions */
                                 $.extend(ajaxoptions, settings.ajaxoptions);
                                 $.ajax(ajaxoptions);
-
+                              
                             }
                         }
                     }
@@ -371,7 +371,7 @@
                 /* prevent calling reset twice when blurring */
                 if (this.editing) {
                     /* before reset hook, if it returns false abort reseting */
-                    if (false !== onreset.apply(form, [settings, self])) {
+                    if (false !== onreset.apply(form, [settings, self])) { 
                         $(self).html(self.revert);
                         self.editing = false;
                         if (!$.trim($(self).html())) {
@@ -379,9 +379,9 @@
                         }
                         /* show tooltip again */
                         $(self).attr('title', settings.tooltip);
-                    }
+                    }                    
                 }
-            }
+            }            
         });
 
     };
@@ -391,7 +391,7 @@
         types: {
             defaults: {
                 element: function (settings, original) {
-                    var input = $('<input type="hidden"></input>');
+                    var input = $('<input type="hidden"></input>');                
                     $(this).append(input);
                     return (input);
                 },
@@ -414,7 +414,7 @@
                             /* otherwise use button with given string as text */
                         } else {
                             var submit = $('<button type="submit" />');
-                            submit.html(settings.submit);
+                            submit.html(settings.submit);                            
                         }
                         $(this).append(submit);
                     }
@@ -432,9 +432,9 @@
                         $(cancel).click(function (event) {
                             //original.reset();
                             if ($.isFunction($.editable.types[settings.type].reset)) {
-                                var reset = $.editable.types[settings.type].reset;
+                                var reset = $.editable.types[settings.type].reset;                                                                
                             } else {
-                                var reset = $.editable.types['defaults'].reset;
+                                var reset = $.editable.types['defaults'].reset;                                
                             }
                             reset.apply(form, [settings, original]);
                             return false;
@@ -490,14 +490,14 @@
                             }
                             if ('selected' == key) {
                                 continue;
-                            }
+                            } 
                             var option = $('<option />').val(key).append(json[key]);
-                            $('select', this).append(option);
+                            $('select', this).append(option);    
                         }
                     }
                     /* Loop option again to set selected. IE needed this... */
                     $('select', this).children().each(function () {
-                        if ($(this).val() == json['selected'] ||
+                        if ($(this).val() == json['selected'] || 
                             $(this).text() == original.revert) {
                             $(this).attr('selected', 'selected');
                         }

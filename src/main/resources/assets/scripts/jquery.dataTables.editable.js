@@ -115,14 +115,14 @@
         function fnStartProcessingMode() {
             if (oTable.fnSettings().oFeatures.bProcessing) {
                 $(".dataTables_processing").css('visibility', 'visible');
-            }
+        }
         }
 
         //Utility function that put the table in the normal state
         function fnEndProcessingMode() {
             if (oTable.fnSettings().oFeatures.bProcessing) {
                 $(".dataTables_processing").css('visibility', 'hidden');
-            }
+        }
         }
 
         var sOldValue, sNewCellValue, sNewCellDislayValue;
@@ -163,7 +163,7 @@
                     if (settings.cssclass != null) {
                         input.addClass(settings.cssclass);
                         if (!input.valid() || 0 == input.valid())
-                            return false;
+                        return false;
                         else
                             return true;
                     }
@@ -202,15 +202,15 @@
                         var oColumnSettings = oDefaultEditableSettings;
                         oColumnSettings = $.extend({}, properties.aoColumns[i], oDefaultEditableSettings);
                         cells.editable(properties.sUpdateURL, oColumnSettings);
-                    }
-
-
                 }
+
+
+            }
             } else {
                 cells = $('td:not(.' + properties.sReadOnlyCellClass + ')', aoNodes);
                 cells.editable(properties.sUpdateURL, oDefaultEditableSettings);
 
-            }
+        }
 
         }
 
@@ -232,8 +232,8 @@
                             properties.fnOnAdded("failure");
                         }
                     });
-                }
             }
+        }
             event.stopPropagation();
             event.preventDefault();
         }
@@ -290,7 +290,7 @@
             if ($('tr.' + properties.sSelectedRowClass + ' td', oTable).length == 0) {
                 oDeleteRowButton.attr("disabled", "true");
                 return;
-            }
+        }
             var id = fnGetCellID($('tr.' + properties.sSelectedRowClass + ' td', oTable)[0]);
             if (properties.fnOnDeleting($('tr.' + properties.sSelectedRowClass, oTable), id)) {
                 properties.fnStartProcessingMode();
@@ -306,7 +306,7 @@
 
                     }
                 });
-            }
+        }
         }
 
         //Called when record is deleted on the server
@@ -318,11 +318,11 @@
                 oDeleteRowButton.attr("disabled", "true");
                 _fnSetDisplayStart();
                 properties.fnOnDeleted("success");
-            }
+        }
             else {
                 properties.fnShowError(response, "delete");
                 properties.fnOnDeleted("failure");
-            }
+        }
         }
 
         //Called before row is deleted
@@ -372,7 +372,7 @@
                 oSettings.oApi._fnCalculateEnd(oSettings);
                 //draw the 'current' page
                 oSettings.oApi._fnDraw(oSettings);
-            }
+        }
         }
 
 

@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.quanta.moapps</groupId>
@@ -101,7 +101,7 @@
                         implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                 <transformer
                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>com.quanta.moapps.databrowser.DataApplication</mainClass>
+                  <mainClass>jquery.datatables.example1.DataApplication</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -132,7 +132,7 @@
             see: method execute() in https://github.com/ispringer/exec-maven-plugin/blob/master/src/main/java/org/codehaus/mojo/exec/ExecJavaMojo.java
           -->
           <killAfter>-1</killAfter>
-          <mainClass>com.quanta.moapps.databrowser.DataApplication</mainClass>
+          <mainClass>jquery.datatables.example1.DataApplication</mainClass>
           <systemProperties>
             <systemProperty>
               <key>file.encoding</key>

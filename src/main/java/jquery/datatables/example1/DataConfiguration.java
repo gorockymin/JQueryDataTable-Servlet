@@ -1,4 +1,4 @@
-package com.quanta.moapps.databrowser;
+package jquery.datatables.example1;
 
 import io.dropwizard.Configuration;
 

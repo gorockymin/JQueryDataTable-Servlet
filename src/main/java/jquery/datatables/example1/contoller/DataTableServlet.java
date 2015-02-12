@@ -1,4 +1,4 @@
-package com.quanta.moapps.databrowser.contoller;
+package jquery.datatables.example1.contoller;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -12,10 +12,14 @@
             src="js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function () {
+//            $('#example').dataTable().makeEditable({
+//                sUpdateURL: "UpdateData.php"
+//            });
             var oTable = $('#example').dataTable(
                     {
                         "processing": true,
                         "ajax": {
+
                             "url": "/DataTableServlet",
                             "dataSrc": "demo",
                             "type": "GET"
